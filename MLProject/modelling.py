@@ -37,7 +37,7 @@ def train_model():
     
     
     # mulai proses training di MLflow
-    with mlflow.start_run(run_name="Random_Forest_Baseline"):
+    with mlflow.start_run(nested=True):
         print("Sedang melatih model")
         
         # Inisialisasi model
