@@ -1,29 +1,27 @@
 name: Heart Disease Training
 
 on:
-push:
-branches:
-- main
+  push:
+    branches:
+      - main
 
 jobs:
-train-model:
-runs-on: ubuntu-latest
+  train-model:
+    runs-on: ubuntu-latest
 
-steps:
-  - name: Checkout Repository
-    uses: actions/checkout@v4
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-  - name: Setup Python
-    uses: actions/setup-python@v5
-    with:
-      python-version: "3.11"
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-  - name: Install Dependencies
-    run: |
-      pip install mlflow==2.19.0
-      pip install pandas
-      pip install scikit-learn
+      - name: Install Dependencies
+        run: |
+          pip install mlflow==2.19.0
 
-  - name: Run MLflow Project
-    run: |
-      mlflow run MLProject --env-manager local
+      - name: Run MLflow Project
+        run: |
+          mlflow run MLProject --env-manager=local
